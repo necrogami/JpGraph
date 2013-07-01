@@ -1,5 +1,14 @@
-JpGraph from http://jpgraph.net/
-======
-This is a port for Symfony2 to put JpGraph as a Vendor library
+# JpGraph
 
-use JpGraph\JpGraph::load(); and JpGraph\JpGraph::module('moduleName'); to load required modules
+## Fork
+JpGraph fork https://github.com/ztec/JpGraph
+
+## Usage
+1. use JpGraph\JpGraph::load();
+2. use JpGraph\JpGraph::module('moduleName'); to load required modules
+
+## Changelog
+1. change chinses character gbk3212, utf-8 problem.
+
+## From
+JpGraph from http://jpgraph.net/
