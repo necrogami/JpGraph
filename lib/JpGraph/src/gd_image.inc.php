@@ -103,6 +103,8 @@ class Image {
     // Should we use anti-aliasing. Note: This really slows down graphics!
     function SetAntiAliasing($aFlg=true) {
         $this->use_anti_aliasing = $aFlg;
+
+        return; //ACSEO : using or not using imageantialias, the function is called. we do not need it, so we comment it
         if( function_exists('imageantialias') ) {
             imageantialias($this->img,$aFlg);
         }
