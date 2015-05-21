@@ -5621,6 +5621,3 @@ class ColorFactory {
     }
 
 }
-
-// <EOF>
-?>
