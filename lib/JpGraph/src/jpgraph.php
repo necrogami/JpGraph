@@ -444,7 +444,11 @@ $gJpgDateLocale = new DateLocale();
 class Footer {
     public $iLeftMargin = 3, $iRightMargin = 3, $iBottomMargin = 3 ;
     public $left,$center,$right;
-    private $iTimer=null, $itimerpoststring='';
+	/**
+	 * @var JpgTimer
+	 */
+	private $iTimer=null;
+	private $itimerpoststring='';
 
     function __construct() {
         $this->left = new Text();
@@ -492,29 +496,96 @@ class Footer {
 //===================================================
 class Graph {
     public $cache=null;   // Cache object (singleton)
-    public $img=null;   // Img object (singleton)
-    public $plots=array();  // Array of all plot object in the graph (for Y 1 axis)
+	/**
+	 * @var Image
+	 */
+	public $img=null;   // Img object (singleton)
+	/**
+	 * @var Plot[]
+	 */
+	public $plots=array();  // Array of all plot object in the graph (for Y 1 axis)
+	/**
+	 * @var Plot[]
+	 */
     public $y2plots=array();  // Array of all plot object in the graph (for Y 2 axis)
+	/**
+	 * @var Plot[][]
+	 */
     public $ynplots=array();
+	/**
+	 * @var LinearScale
+	 */
     public $xscale=null;  // X Scale object (could be instance of LinearScale or LogScale
-    public $yscale=null,$y2scale=null, $ynscale=array();
-    public $iIcons = array();  // Array of Icons to add to
+	/**
+	 * @var LinearScale
+	 */
+	public $yscale=null;
+	/**
+	 * @var LinearScale
+	 */
+	public $y2scale=null;
+	/**
+	 * @var LinearScale[]
+	 */
+	public $ynscale=array();
+	/**
+	 * @var IconPlot[]
+	 */
+	public $iIcons = array();  // Array of Icons to add to
     public $cache_name;   // File name to be used for the current graph in the cache directory
-    public $xgrid=null;   // X Grid object (linear or logarithmic)
-    public $ygrid=null,$y2grid=null; //dito for Y
+	/**
+	 * @var Grid
+	 */
+	public $xgrid=null;   // X Grid object (linear or logarithmic)
+	/**
+	 * @var Grid
+	 **/
+    public $ygrid=null;
+	/**
+	 * @var Grid
+	 */
+	public $y2grid=null; //dito for Y
     public $doframe,$frame_color, $frame_weight; // Frame around graph
     public $boxed=false, $box_color='black', $box_weight=1;  // Box around plot area
     public $doshadow=false,$shadow_width=4,$shadow_color='gray@0.5'; // Shadow for graph
-    public $xaxis=null;   // X-axis (instane of Axis class)
-    public $yaxis=null, $y2axis=null, $ynaxis=array(); // Y axis (instance of Axis class)
+    /**
+	 * @var Axis
+	 */
+	public $xaxis=null;   // X-axis (instane of Axis class)
+	/**
+	 * @var Axis
+	 */
+    public $yaxis=null;
+	/**
+	 * @var Axis
+	 */
+	public $y2axis=null;
+	/**
+	 * @var Axis[]
+	 */
+	public $ynaxis=array(); // Y axis (instance of Axis class)
     public $margin_color; // Margin color of graph
     public $plotarea_color=array(255,255,255); // Plot area color
     public $title,$subtitle,$subsubtitle;  // Title and subtitle(s) text object
     public $axtype="linlin";  // Type of axis
     public $xtick_factor,$ytick_factor; // Factor to determine the maximum number of ticks depending on the plot width
-    public $texts=null, $y2texts=null; // Text object to ge shown in the graph
+	/**
+	 * @var Text[]
+	 */
+	public $texts=null;
+	/**
+	 * @var Text[]
+	 */
+	public $y2texts=null; // Text object to ge shown in the graph
     public $lines=null, $y2lines=null;
-    public $bands=null, $y2bands=null;
+	/**
+	 * @var PlotBand[]
+	 */
+	public $bands=null;
+	/**
+	 * @var PlotBand[]
+	 */
+	public $y2bands=null;
     public $text_scale_off=0, $text_scale_abscenteroff=-1; // Text scale in fractions and for centering bars
     public $background_image='',$background_image_type=-1,$background_image_format="png";
     public $background_image_bright=0,$background_image_contr=0,$background_image_sat=0;
@@ -557,13 +628,19 @@ class Graph {
            $iImgTransFillColor='white',$iImgTransHighQ=false,
            $iImgTransBorder=false,$iImgTransHorizonPos=0.5;
     public $legend;
-    public $graph_theme;
+	/**
+	 * @var Theme
+	 */
+	public $graph_theme;
     protected $iYAxisDeltaPos=50;
     protected $iIconDepth=DEPTH_BACK;
     protected $iAxisLblBgType = 0,
               $iXAxisLblBgFillColor = 'lightgray', $iXAxisLblBgColor = 'black',
               $iYAxisLblBgFillColor = 'lightgray', $iYAxisLblBgColor = 'black';
-    protected $iTables=NULL;
+	/**
+	 * @var GTextTable[]
+	 */
+	protected $iTables=NULL;
 
     protected $isRunningClear = false;
     protected $inputValues;
@@ -3052,8 +3129,11 @@ class Graph {
         return $flg ? array($min,$max) : false ;
     }
 
-    // Get min and max values for all included plots
-    function GetPlotsYMinMax($aPlots) {
+	/**
+	 * Get min and max values for all included plots
+	 * @param Plot[] $aPlots
+	 */
+	function GetPlotsYMinMax(array $aPlots) {
         $n = count($aPlots);
         $i=0;
         do {
@@ -3188,7 +3268,7 @@ class LineProperty {
         $this->iShow=$aShow;
     }
 
-    function Stroke($aImg,$aX1,$aY1,$aX2,$aY2) {
+    function Stroke(Image $aImg,$aX1,$aY1,$aX2,$aY2) {
         if( $this->iShow ) {
             $aImg->PushColor($this->iColor);
             $oldls = $aImg->line_style;
@@ -3246,7 +3326,7 @@ class GraphTabTitle extends Text{
         $this->corner = $aD ;
     }
 
-    function Stroke($aImg,$aDummy1=null,$aDummy2=null) {
+    function Stroke(Image $aImg,$aDummy1=null,$aDummy2=null) {
         if( $this->hide )
             return;
         $this->boxed = false;
@@ -3385,7 +3465,7 @@ class SuperScriptText extends Text {
     }
 
     // Total width of text
-    function GetWidth($aImg) {
+    function GetWidth(Image $aImg) {
         $aImg->SetFont($this->font_family,$this->font_style,$this->font_size);
         $w = $aImg->GetTextWidth($this->t);
         $aImg->SetFont($this->sfont_family,$this->sfont_style,$this->sfont_size);
@@ -3395,7 +3475,7 @@ class SuperScriptText extends Text {
     }
 
     // Hight of font (approximate the height of the text)
-    function GetFontHeight($aImg) {
+    function GetFontHeight(Image $aImg) {
         $aImg->SetFont($this->font_family,$this->font_style,$this->font_size);
         $h = $aImg->GetFontHeight();
         $aImg->SetFont($this->sfont_family,$this->sfont_style,$this->sfont_size);
@@ -3404,7 +3484,7 @@ class SuperScriptText extends Text {
     }
 
     // Hight of text
-    function GetTextHeight($aImg) {
+    function GetTextHeight(Image $aImg) {
         $aImg->SetFont($this->font_family,$this->font_style,$this->font_size);
         $h = $aImg->GetTextHeight($this->t);
         $aImg->SetFont($this->sfont_family,$this->sfont_style,$this->sfont_size);
@@ -3412,7 +3492,7 @@ class SuperScriptText extends Text {
         return $h;
     }
 
-    function Stroke($aImg,$ax=-1,$ay=-1) {
+    function Stroke(Image $aImg,$ax=-1,$ay=-1) {
 
         // To position the super script correctly we need different
         // cases to handle the alignmewnt specified since that will
@@ -3515,7 +3595,10 @@ class SuperScriptText extends Text {
 // Description: responsible for drawing grid lines in graph
 //===================================================
 class Grid {
-    protected $img;
+	/**
+	 * @var Image
+	 */
+	protected $img;
     protected $scale;
     protected $majorcolor='#CCCCCC',$minorcolor='#DDDDDD';
     protected $majortype='solid',$minortype='solid';
@@ -3663,10 +3746,19 @@ class Grid {
 // follow.
 //===================================================
 class AxisPrototype {
-    public $scale=null;
-    public $img=null;
+	/**
+	 * @var LinearScale
+	 */
+	public $scale=null;
+	/**
+	 * @var Image
+	 */
+	public $img=null;
     public $hide=false,$hide_labels=false;
-    public $title=null;
+	/**
+	 * @var Text
+	 */
+	public $title=null;
     public $font_family=FF_DEFAULT,$font_style=FS_NORMAL,$font_size=8,$label_angle=0;
     public $tick_step=1;
     public $pos = false;
@@ -3889,7 +3981,7 @@ class Axis extends AxisPrototype {
     }
 
     // Stroke the axis.
-    function Stroke($aOtherAxisScale,$aStrokeLabels=true) {
+    function Stroke(LinearScale $aOtherAxisScale,$aStrokeLabels=true) {
         if( $this->hide )
             return;
         if( is_numeric($this->pos) ) {
@@ -4336,7 +4428,7 @@ class LinearTicks extends Ticks {
     }
 
     // Specify all the tick positions manually and possible also the exact labels
-    function _doManualTickPos($aScale) {
+    function _doManualTickPos(LinearScale $aScale) {
         $n=count($this->iManualTickPos);
         $m=count($this->iManualMinTickPos);
         $doLbl=count($this->iManualTickLabels) > 0;
@@ -4388,7 +4480,7 @@ class LinearTicks extends Ticks {
         }
     }
 
-    function _doAutoTickPos($aScale) {
+    function _doAutoTickPos(LinearScale $aScale) {
         $maj_step_abs = $aScale->scale_factor*$this->major_step;
         $min_step_abs = $aScale->scale_factor*$this->minor_step;
 
@@ -4547,7 +4639,7 @@ class LinearTicks extends Ticks {
     }
 
     // Stroke ticks on either X or Y axis
-    function _StrokeTicks($aImg,$aScale,$aPos) {
+    function _StrokeTicks(Image $aImg,LinearScale $aScale,$aPos) {
         $hor = $aScale->type == 'x';
         $aImg->SetLineWeight($this->weight);
 
@@ -5265,7 +5357,7 @@ class DisplayValue {
         $this->fsize=$aFontSize;
     }
 
-    function ApplyFont($aImg) {
+    function ApplyFont(Image $aImg) {
         $aImg->SetFont($this->ff,$this->fs,$this->fsize);
     }
 
