@@ -747,6 +747,8 @@ class GroupBarPlot extends BarPlot {
         $tmp=$xscale->off;
         $n = count($this->plots);
         $subwidth = $this->width/$this->nbrplots ;
+		if ($this->abswidth) $subwidth = $this->abswidth/$this->nbrplots ;
+		else $subwidth = $this->width/$this->nbrplots ;
 
         for( $i=0; $i < $n; ++$i ) {
             $this->plots[$i]->ymin=$this->ybase;
@@ -757,7 +759,8 @@ class GroupBarPlot extends BarPlot {
             // If we assume it is always one the positioning will work
             // fine with a text scale but this will not work with
             // arbitrary linear scale
-            $xscale->off = $tmp+$i*round($xscale->scale_factor* $subwidth);
+			if ($this->abswidth) $xscale->off = $tmp+$i*($subwidth+1);
+			else $xscale->off = $tmp+$i*round($xscale->scale_factor* $subwidth);
             $this->plots[$i]->Stroke($img,$xscale,$yscale);
         }
         $xscale->off=$tmp;
