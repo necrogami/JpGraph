@@ -102,6 +102,8 @@ class Image {
 
     // Should we use anti-aliasing. Note: This really slows down graphics!
     function SetAntiAliasing($aFlg=true) {
+		$this->use_anti_aliasing = false;
+		return;
         $this->use_anti_aliasing = $aFlg;
         if( function_exists('imageantialias') ) {
             imageantialias($this->img,$aFlg);
