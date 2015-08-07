@@ -1,7 +1,7 @@
 # README-fabic.md ( fabic/JpGraph fork )
 
 _This is `README-fabic.md`, a purposedly separate README file for my fork
- of JpGraph ( https://github.com/fabic/JpGraph/ )
+ of JpGraph ( https://github.com/fabic/JpGraph/ )_
 
 * This is a fork of Ztec's original repository https://github.com/ztec/JpGraph
 * with known forked branches as of 2015-08-07 on Github merged in.

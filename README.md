@@ -7,9 +7,9 @@ for pulling in forks and eventual fixes.
 Use `JpGraph\JpGraph::load();` and `JpGraph\JpGraph::module('moduleName');` to load required modules.
 
 * __*See fork notes at [README-fabic.md](https://github.com/fabic/JpGraph/blob/master/README-fabic.md)*__
-* Did submit this to packagist.org as `fabic/jpgraph` (even though this is _yet another fork_ as I may maintain this for about one year) :
+* Did submit this to packagist.org as `fabic/jpgraph` (even though this is _yet another fork_, for I may maintain this for about one year) :
   https://packagist.org/packages/fabic/jpgraph
-* The original Ztec's_ package is `jpgraph/jpgraph`
+* The original _Ztec's_ package is `jpgraph/jpgraph`
   at https://packagist.org/packages/jpgraph/jpgraph
 * `refs/tags/v3.5.0b1` references a tree that shall be the exact version of source
   from the official tarball (hence before everyone played with it).
