@@ -1,4 +1,7 @@
-# README-fabic.md ( https://github.com/fabic/JpGraph fork ) 
+# README-fabic.md ( fabic/JpGraph fork )
+
+_This is `README-fabic.md`, a purposedly separate README file for my fork
+ of JpGraph ( https://github.com/fabic/JpGraph/ )
 
 * This is a fork of Ztec's original repository https://github.com/ztec/JpGraph
 * with known forked branches as of 2015-08-07 on Github merged in.
@@ -8,6 +11,14 @@
 * Did however UNTAR back the official version so as to assess the difference
   `tar -xf jpgraph-3.5.0b1.tar.gz --strip-components=1 -C lib/JpGraph/`
 * See commit [FABIC: PATCH WITH OFFICIAL LIBRARY VERSION v3.5.0b1 UNTARED](https://github.com/fabic/JpGraph/commit/ae09ff1123ce835e07f9e2068b54f80e84aef4a6)
+
+### Of special interest, and which differs from the official version :
+
+* [`lib/JpGraph/GlobalConfig.php`](tree/master/lib/JpGraph/GlobalConfig.php)
+* which may be used to parameterize those few things of JpGraph
+* defined at [`lib/JpGraph/src/jpg-config.inc.php`](tree/master/lib/JpGraph/src/jpg-config.inc.php)
+* `\JpGraph\JpGraph::load();`
+* and `\JpGraph\JpGraph::module($moduleName)` (where it might be e.g. `pie`, `bar`)
 
 ### Legacy codes wrapper “module scripts” :
 
