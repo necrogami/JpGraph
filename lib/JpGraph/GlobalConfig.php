@@ -24,10 +24,10 @@ class GlobalConfig
         'ERR_DEPRECATED' => true,
         'USE_LIBRARY_IMAGETTFBBOX' => true,
         'CACHE_FILE_GROUP' => 'www',
-        'CACHE_FILE_MOD'=>0664,
-        'DEFAULT_THEME_CLASS'=>'UniversalTheme',
-        'SUPERSAMPLING'=>true,
-        'SUPERSAMPLING_SCALE'=>1
+        'CACHE_FILE_MOD' => 0664,
+        'DEFAULT_THEME_CLASS' => 'UniversalTheme',
+        'SUPERSAMPLING' => true,
+        'SUPERSAMPLING_SCALE' => 1
     );
 
     public static function set($key, $val)
