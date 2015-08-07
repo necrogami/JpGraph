@@ -15,5 +15,8 @@
         "psr-0" : {
             "JpGraph" : "lib/"
         }
-    }
+    },
+    "include-path": [
+        "lib/JpGraph/lib_hack/"
+    ]
 }
