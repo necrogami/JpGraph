@@ -2,6 +2,9 @@
 
 * This is a fork of Ztec's original repository https://github.com/ztec/JpGraph
 * with known forked branches as of 2015-08-07 on Github merged in.
+* Latest official stable is advertised at http://jpgraph.net/download/
+  as **3.5.0b1 (2010-10-07)**, which appears to be the version that was
+  used by Ztec : [lib/JpGraph/VERSION](/blob/master/lib/JpGraph/VERSION).
 
 ## ChangeLog
 
@@ -12,29 +15,31 @@
   **Beware** that I did this w/o testing anything, just reviewing patches as I was
   pulling in forked branches.
 
-    * [master] Merge branch 'patch-2' of github.com:ColonelMoutarde/JpGraph
-     ! [ztec/master] Merge pull request #1 from podhy/master
+    git show-branch --sha1-name de3d72c ztec
+
+    ! [de3d72c] FABIC: Added README-fabic.md, updated README.md
+     ! [ztec] Merge pull request #1 from podhy/master
     --
-    -  [master] Merge branch 'patch-2' of github.com:ColonelMoutarde/JpGraph
-    *  [master^2] remove ?>
-    *  [master^^2] remove ?>
-    *  [master^^2^] disabling imageantialias
-    *  [master~2^2] Line do not shows by default, this cause an invisible GanttVLine
-    *  [master~3^2] Closing tags are EVIL
-    *  [master~3^2^] Updated the README with installation instructions
-    *  [master~3^2~2] Fixed the problem with imageantialias without commenting core library.
-    *  [master~3^2~3] +JpGraph loader now extends Symfony Bundle class
-    *  [master~4^2] Update JpGraph.php
-    *  [master~5] Revert mheinzerling's "disable antialias"
-    *  [master~6^2] disable antialias
-    *  [master~6^2^] hack GroupBarPlot width
-    *  [master~6^2~2] add some type hints
-    *  [master~6^2~3] remove closing tag
-    *  [master~6^2~4] handle date x axis in accumulated bar charts
-    *  [master~7^2] 当Chinese为UTF-8格式时，不转换格式
-    *  [master~7^2^] Change README, and rename package list name to minowu/JpGraph.
-    *  [master~8^2] Updated composer.json
-    *  [master~8^2^] hacks to allow config changes without editing package
-    -- [ztec/master] Merge pull request #1 from podhy/master
+    +  [de3d72c] FABIC: Added README-fabic.md, updated README.md
+    +  [c39ba12] remove ?>
+    +  [3456847] remove ?>
+    +  [70681c4] disabling imageantialias
+    +  [150442b] Line do not shows by default, this cause an invisible GanttVLine
+    +  [1991f13] Closing tags are EVIL
+    +  [e6d2c80] Updated the README with installation instructions
+    +  [9e503f4] Fixed the problem with imageantialias without commenting core library.
+    +  [6367a1b] +JpGraph loader now extends Symfony Bundle class
+    +  [be9d358] Update JpGraph.php
+    +  [be7c70d] Revert mheinzerling's "disable antialias"
+    +  [b681e41] disable antialias
+    +  [0d606d8] hack GroupBarPlot width
+    +  [5d49700] add some type hints
+    +  [12532ce] remove closing tag
+    +  [29698c8] handle date x axis in accumulated bar charts
+    +  [d6716ab] 当Chinese为UTF-8格式时，不转换格式
+    +  [89559c1] Change README, and rename package list name to minowu/JpGraph.
+    +  [8a2e789] Updated composer.json
+    +  [84966ee] hacks to allow config changes without editing package
+    -- [ad26df5] Merge pull request #1 from podhy/master
 
 _**EOF**_
