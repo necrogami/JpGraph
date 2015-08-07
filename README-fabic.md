@@ -5,6 +5,9 @@
 * Latest official stable is advertised at http://jpgraph.net/download/
   as **3.5.0b1 (2010-10-07)**, which appears to be the version that was
   used by Ztec : [lib/JpGraph/VERSION](/blob/master/lib/JpGraph/VERSION).
+* Did however UNTAR back the official version so as to assess the difference
+  `tar -xf jpgraph-3.5.0b1.tar.gz --strip-components=1 -C lib/JpGraph/`
+* See commit [FABIC: PATCH WITH OFFICIAL LIBRARY VERSION v3.5.0b1 UNTARED](https://github.com/fabic/JpGraph/commit/ae09ff1123ce835e07f9e2068b54f80e84aef4a6)
 
 ## ChangeLog
 
