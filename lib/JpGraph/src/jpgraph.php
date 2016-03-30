@@ -233,7 +233,7 @@ function CheckPHPVersion($aMinVersion) {
 
     if ($majorC > $majorR) return true;
     if ($majorC < $majorR) return false;
-    // same major - check minor
+    // major matches - check minor
     if ($minorC > $minorR) return true;
     if ($minorC < $minorR) return false;
     // and same minor
