@@ -1,5 +1,5 @@
 {
-    "name": "fabic/jpgraph",
+    "name": "necrogami/jpgraph",
     "type": "library",
     "description": "jpGraph, library to make graphs and charts",
     "keywords": ["graph","chart","pie","jpgraph","data"],
@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": "~5.1",
+        "php": ">=5.1",
         "ext-gd": "*"
     },
     "autoload": {
